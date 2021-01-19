@@ -1,0 +1,51 @@
+
+server:
+  port:8080
+
+#actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include=*:
+
+#datasource
+spring:
+  out:
+   ansi:
+     enabled: ALWAYS
+  datasource:
+    spring:
+      #name: spring
+      #driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1/spring?serverTimezone=Asia/Shanghai
+      username: root
+      password: root
+      #initialization-mode: always # 共三种配置值：ALWAYS,EMBEDDED,NEVER  才能生效，默认是embedded，就是内存数据库方可执行。
+      #schema: classpath:schema.sql # sql 文件可自己命名
+      #data: classpath:data.sql
+      hikari:
+        maximumPoolSize: 5
+        minimumIdle: 5
+        idleTimeout: 600000
+        connectionTimeout: 30000
+        maxLifetime: 1800000
+    world:
+        #name: world
+        #driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1/world?serverTimezone=Asia/Shanghai
+        username: root
+        password: root
+        #initialization-mode: always # 共三种配置值：ALWAYS,EMBEDDED,NEVER  才能生效，默认是embedded，就是内存数据库方可执行。
+        #schema: classpath:schema.sql # sql 文件可自己命名
+        #data: classpath:data.sql
+        hikari:
+          maximumPoolSize: 5
+          minimumIdle: 5
+          idleTimeout: 600000
+          connectionTimeout: 30000
+          maxLifetime: 1800000
+
+
+
+
